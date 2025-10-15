@@ -1,6 +1,4 @@
 import numpy as np
-from helpers import batch_iter, sigmoid
-
 
 # Function 1: Mean Squared Error using Gradient Descent
 def mean_squared_error_gd(y, tx, initial_w, max_iters, gamma):
