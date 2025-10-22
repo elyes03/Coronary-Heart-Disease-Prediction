@@ -95,12 +95,17 @@ def ridge_regression(y, tx, lambda_):
     Returns:
         tuple: (w, loss) where w is the ridge regression weight vector and loss is the MSE cost at this w (excluding regularization).
     """
-    N, D = tx.shape
+    # N, D = tx.shape
 
     # Compute normal equation with L2 regularization: (X^T X + lambda * N * I) w = X^T y
-    a = tx.T.dot(tx) + lambda_ * N * np.eye(D)
-    b = tx.T.dot(y)
-    w = np.linalg.solve(a, b)
+    # a = tx.T.dot(tx) + lambda_ * N * np.eye(D)
+    # b = tx.T.dot(y)
+    # w = np.linalg.solve(a, b)
+    N, D = tx.shape
+    I = np.eye(D)
+    A = tx.T @ tx + 2 * lambda_ * N * I
+    b = tx.T @ y
+    w = np.linalg.solve(A, b)
     # Compute MSE loss on training data (without regularization term)
     error = y - tx.dot(w)
     loss = np.dot(error, error) / (2 * N)
