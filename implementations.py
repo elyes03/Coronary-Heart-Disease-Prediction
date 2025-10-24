@@ -125,16 +125,18 @@ def logistic_regression(y, tx, initial_w, max_iters, gamma):
         tuple: (w, loss) where w is the final weight vector and loss is the logistic loss (negative log-likelihood) at this w.
     """
     # Sigmoid (logistic) function
-    sigmoid = lambda t: 1 / (1 + np.exp(-t))
+    # sigmoid = lambda t: 1 / (1 + np.exp(-t))
+    from helpersmodels import sigmoid
 
     w = initial_w.copy()
     N = y.shape[0]
 
     for iter in range(max_iters):
         # Compute the predicted probabilities
-        pred = sigmoid(tx.dot(w))
+        pred = sigmoid(tx.dot(w)) 
 
         # Gradient of negative log-likelihood: (1/N) * X^T (pred - y)
+        
         grad = tx.T.dot(pred - y) / N
 
         # Update weights
