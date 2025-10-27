@@ -111,7 +111,7 @@ def optimize_thresholdlog(y_true, y_scores):
     best_f1 = 0
     best_accuracy = 0
 
-    thresholds = np.linspace(np.min(y_scores), np.max(y_scores), 100)
+    thresholds = np.linspace(0, 1, 100)
 
     for threshold in thresholds:
         y_pred = np.where(y_scores >= threshold, 1, 0)
@@ -297,7 +297,6 @@ def cross_validation_logreg(y, tx, k_fold, gammas, max_iters=1000, seed=1,verbos
     best_gamma : float
     history : dict with per-gamma averages for "logloss" and "accuracy"
     """
-    y=(y+1)//2 
 
     k_indices = build_k_indices(y, k_fold, seed)
     avg_loss_per_gamma = []
@@ -334,14 +333,11 @@ def cross_validation_logreg(y, tx, k_fold, gammas, max_iters=1000, seed=1,verbos
     
     best_gamma = float(gammas[best_idx])
 
-    print(f"=> Best gamma (Ridge): {best_gamma} with Avg MSE = {min(avg_loss_per_gamma):.6f}")
+    print(f"=> Best gamma (Logistic): {best_gamma} with Avg MSE = {min(avg_loss_per_gamma):.6f}")
 
     return best_gamma
 
-def cross_validate_reg_logreg(
-    y, tx, k_fold, lambdas, gammas,
-    max_iters=1000, seed=1,
-):
+def cross_validate_reg_logreg(y, tx, k_fold, lambdas, gammas,max_iters=1000, seed=1,):
     """
     Grid-search CV for (lambda_, gamma) in regularized logistic regression (L2, GD).
 
@@ -367,7 +363,7 @@ def cross_validate_reg_logreg(
         - 'avg_accuracy': (len(lambdas), len(gammas)) matrix
         - 'best_idx'    : (i_lambda, j_gamma)
     """
-    y=(y+1)//2 
+
     k_indices = build_k_indices(y, k_fold, seed)
 
     L = len(lambdas)

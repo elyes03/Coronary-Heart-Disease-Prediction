@@ -78,7 +78,7 @@ def least_squares(y, tx):
     a = tx.T.dot(tx)
     b = tx.T.dot(y)
     # Solve for w 
-    w = np.linalg.solve(a, b)
+    w=np.linalg.lstsq(a,b)[0]
     # Calculate the MSE loss for this optimal w
     error = y - tx.dot(w)
     loss = np.dot(error, error) / (2 * y.shape[0])
