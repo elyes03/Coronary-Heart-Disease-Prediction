@@ -7,14 +7,16 @@ The primary objective is to build a classification model capable of identifying 
 # Project Architecture 
 ---
 
-README.md                     # Project documentation
-cleaning.ipynb                # Jupyter notebook for data cleaning processes
-helpers.py                    # Provided helper functions
-helpersmodels.py              # helper functions used across different parts of the project
-implementations.py            # Contains the six requested implementations
-run.py                        # Main script for submission
-models.ipynb                  # Jupyter notebook for running all models and exploring results
-report.pdf                    # Two page report explaining our reasoning and results
+| File | Description |
+|------|--------------|
+| `README.md` | Project documentation |
+| `cleaning.ipynb` | Jupyter notebook for data cleaning processes |
+| `helpers.py` | Provided helper functions |
+| `helpersmodels.py` | Helper functions used across project parts |
+| `implementations.py` | Contains the six requested implementations |
+| `run.py` | Main script for submission |
+| `models.ipynb` | Jupyter notebook for running models and exploring results |
+| `report.pdf` | Two-page report explaining reasoning and results |
 
 # Team 
 ---
