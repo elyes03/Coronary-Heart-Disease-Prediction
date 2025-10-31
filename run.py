@@ -4,7 +4,7 @@ from implementations import *
 from helpersmodels import *
 
 # Set the best hyperparameters 
-best_lambda = 0.001
+best_lambda = 0.0001
 best_gamma = 0.3
 best_threshold = 0.26567917946228264
 
