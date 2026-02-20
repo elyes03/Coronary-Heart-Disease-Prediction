@@ -21,10 +21,6 @@ The primary objective is to build a classification model capable of identifying 
 # Team 
 ---
 
-This project was made by team Carthago
-
-[Team Link](https://www.aicrowd.com/challenges/epfl-machine-learning-project-1/teams/Carthago)
-
 Mohamed Aziz Hamza @Hamzach13
 Elyes Fares Trabelsi @elyes03
 Yassine Mamlouk @mamlouky
